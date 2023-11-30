@@ -11,7 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MyLinkedListTest {
 
-    static String FILEPATH = "C:\\Users\\User\\IdeaProjects\\AstonTaskCollection\\src\\test\\java\\by\\xcaptin\\collections\\values";
+    static String FILEPATH = "src/main/resources/values";
     private static MyLinkedList<Integer> myLinkedListInteger;
     private static MyLinkedList<String> myLinkedListString;
     private static MyLinkedList<Double> myLinkedListDouble;
@@ -95,7 +95,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    void testRemoveByIndex() {
+    void testAddAndRemoveByIndex() {
         Random random = new Random();
         testAddForInteger();
         int randomNumber = random.nextInt(myLinkedListInteger.size() - 1);
@@ -106,7 +106,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    void testRemoveByElement() {
+    void testAddAndRemoveByElement() {
         Random random = new Random();
 
         testAddForString();
@@ -122,7 +122,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    void testGet() {
+    void testAddAndGetRandomIndex() {
         Random random = new Random();
 
         testAddForDouble();
@@ -133,7 +133,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    void testClear() {
+    void testAddAndClearAllElements() {
         int checkSize = 0;
 
         testAddForInteger();
@@ -143,7 +143,7 @@ public class MyLinkedListTest {
     }
 
     @Test
-    void testSize() {
+    void testAddAndCheckSize() {
         testAddForDouble();
 
         assertEquals(doubleArrayForMethodAddTest.length, myLinkedListDouble.size());
@@ -151,7 +151,7 @@ public class MyLinkedListTest {
 
 
     @Test
-    void testSort() {
+    void testAddAndSortElements() {
         testAddForInteger();
 
         myLinkedListInteger.sort();

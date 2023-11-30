@@ -1,5 +1,7 @@
 package by.xCaptin.collections;
 
+import java.util.Iterator;
+
 /**
  * Interface representing a generic list of elements.
  *
@@ -60,4 +62,11 @@ public interface MyList<T> {
      * Sorts the elements of this list in their natural order.
      */
     void sort();
+
+    /**
+     * Returns an iterator over the elements in this list in proper sequence.
+     *
+     * @return an iterator over the elements in this list
+     */
+    Iterator<T> iterator();
 }

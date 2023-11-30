@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -13,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class MyArrayListTest {
 
-    static String FILEPATH = "C:\\Users\\User\\IdeaProjects\\AstonTaskCollection\\src\\test\\java\\by\\xcaptin\\collections\\values";
+    static String FILEPATH = "src/main/resources/values";
     private static MyArrayList<Integer> myArrayList;
     static Collection<Integer> numberListTest;
     static int numberCapacityTest;
@@ -65,7 +66,7 @@ public class MyArrayListTest {
 
 
     @Test
-    void testRemoveByIndex() {
+    void testAddAndRemoveByIndex() {
         Random random = new Random();
         testAddAndSize();
         int size = myArrayList.size();
@@ -77,7 +78,7 @@ public class MyArrayListTest {
 
 
     @Test
-    void testRemoveByValue() {
+    void testAddAndRemoveByValue() {
         testAddAndSize();
         int value = Arrays.stream(numbersArrayForMethodAddTest).boxed()
                 .findAny()
@@ -89,7 +90,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    void testGet() {
+    void testAddAndGetRandomIndex() {
         Random random = new Random();
         testAddAndSize();
         int randomNumber = random.nextInt(myArrayList.size() - 1);
@@ -98,7 +99,7 @@ public class MyArrayListTest {
     }
 
     @Test
-    void testClear() {
+    void testAddAndClearAndVerifySize() {
         testAddAndSize();
 
         myArrayList.clear();
@@ -106,13 +107,29 @@ public class MyArrayListTest {
     }
 
     @Test
-    void testSort() {
+    void testAddAndSortElements() {
         testAddAndSize();
 
         myArrayList.sort();
         for (int i = 0; i < myArrayList.size(); i++) {
             System.out.print(myArrayList.get(i) + " ");
         }
+    }
+
+    @Test
+    void testIteratorAndCollectElements() {
+        testAddAndSize();
+
+        StringBuilder result = new StringBuilder();
+        Iterator<Integer> iterator = myArrayList.iterator();
+        while (iterator.hasNext()) {
+            Integer element = iterator.next();
+            result.append(element);
+        }
+
+        assertEquals(Arrays.stream(numbersArrayForMethodAddTest)
+                .mapToObj(String::valueOf)
+                .collect(Collectors.joining()), result.toString());
     }
 
     public static void fileStringReaderForCollection() {

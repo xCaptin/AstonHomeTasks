@@ -4,15 +4,18 @@ import by.xCaptin.collections.MyList;
 
 import java.util.Collection;
 import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 
 /**
  * A custom implementation of a linked list that implements the MyList interface.
  *
  * @param <T> the type of elements held in this linked list
+ * @author Kirill Shinkarev (xCaptin)
+ * @see MyList
+ * @see by.xCaptin.collections.arraylist.MyArrayList
  */
 public class MyLinkedList<T> implements MyList<T> {
-
 
     /**
      * The size of the linked list.
@@ -101,11 +104,12 @@ public class MyLinkedList<T> implements MyList<T> {
     @SuppressWarnings("unchecked")
     public void addAll(Collection<? extends T> c) {
         if (!c.isEmpty()) {
-            for (Iterator iterator = c.iterator(); iterator.hasNext(); ) {
-                add((T) iterator.next(), header);
+            for (T t : c) {
+                add(t, header);
             }
         }
     }
+
 
 
     /**
@@ -207,6 +211,48 @@ public class MyLinkedList<T> implements MyList<T> {
     }
 
     /**
+     * Returns an iterator over the elements in this list in proper sequence.
+     *
+     * @return an iterator over the elements in this list
+     */
+    @Override
+    public Iterator<T> iterator() {
+        return new MyLinkedListIterator();
+    }
+    /**
+     * CustomLinkedListIterator is an iterator for traversing the linked list.
+     */
+    private class MyLinkedListIterator implements Iterator<T> {
+        private Node<T> current = header.first;
+
+        /**
+         * Checks if there are more elements in the iteration.
+         *
+         * @return true if there are more elements, false otherwise
+         */
+        @Override
+        public boolean hasNext() {
+            return current != header;
+        }
+
+        /**
+         * Returns the next element in the iteration.
+         *
+         * @return the next element
+         * @throws NoSuchElementException - if the element doesn't exist
+         */
+        @Override
+        public T next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+            T value = current.element;
+            current = current.first;
+            return value;
+        }
+    }
+
+    /**
      * Returns an array containing all of the elements in this list in proper sequence (from first to last element).
      *
      * @return an array containing all of the elements in this list in proper sequence
@@ -249,7 +295,7 @@ public class MyLinkedList<T> implements MyList<T> {
      *
      * @param <T> the type of the element held by the node
      */
-    private class Node<T> {
+    private static class Node<T> {
         T element;
         Node<T> first;
         Node<T> last;
