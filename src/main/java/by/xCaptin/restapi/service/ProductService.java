@@ -26,7 +26,6 @@ public class ProductService {
                 .collect(Collectors.toList());
     }
 
-
     public ProductDTO getByIdProducts(Long id) throws SQLException {
         ProductEntity product = productRepository.selectProducts(id);
         return mapper.toDto(product);

@@ -1,7 +1,6 @@
 package by.xCaptin.restapi.dto;
 
 import lombok.*;
-
 import java.util.Objects;
 
 @Getter

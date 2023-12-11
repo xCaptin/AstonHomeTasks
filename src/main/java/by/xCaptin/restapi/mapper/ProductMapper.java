@@ -4,7 +4,6 @@ import by.xCaptin.restapi.dto.ProductDTO;
 import by.xCaptin.restapi.entity.ProductEntity;
 
 public class ProductMapper implements Mapper<ProductEntity, ProductDTO>{
-
     @Override
     public ProductEntity fromDto(ProductDTO dto) {
         ProductEntity entity = new ProductEntity();
