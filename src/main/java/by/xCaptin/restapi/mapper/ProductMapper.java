@@ -12,7 +12,6 @@ public class ProductMapper implements Mapper<ProductEntity, ProductDTO>{
 
         return entity;
     }
-
     @Override
     public ProductDTO toDto(ProductEntity entity) {
         return ProductDTO.builder()

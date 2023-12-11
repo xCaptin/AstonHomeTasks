@@ -16,7 +16,6 @@ import java.util.List;
 
 @WebServlet("/")
 public class ProductsServlet extends HttpServlet {
-
     private final ProductRepository productRepository = new ProductRepository();
 
     public ProductsServlet() {

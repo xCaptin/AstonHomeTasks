@@ -11,5 +11,4 @@ public class ProductEntity {
     private long id;
     private String name;
     private int kcal;
-
 }

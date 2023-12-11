@@ -18,7 +18,6 @@ import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.*;
 
 public class ProductServiceTest {
-
     @Mock
     private ProductRepository productRepository;
 

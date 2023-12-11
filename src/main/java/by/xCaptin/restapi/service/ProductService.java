@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class ProductService {
-
     private final ProductRepository productRepository;
     private final Mapper<ProductEntity, ProductDTO> mapper;
 

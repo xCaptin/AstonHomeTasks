@@ -8,7 +8,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DbConnect {
-
     private static final Config config = ConfigFactory.load();
     private static final String DB_URL = config.getString("db.url");
     private static final String USER = config.getString("db.username");

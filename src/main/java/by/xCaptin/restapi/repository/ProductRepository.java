@@ -9,7 +9,6 @@ import java.util.List;
 
 public class ProductRepository {
     Connection connection;
-
     private static final String INSERT_PRODUCTS_SQL = "INSERT INTO shop (name, kcal) VALUES  (?, ?);";
     private static final String SELECT_PRODUCTS_BY_ID = "SELECT id,name,kcal FROM shop WHERE id =?";
     private static final String SELECT_ALL_PRODUCTS = "SELECT * FROM shop;";

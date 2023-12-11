@@ -23,7 +23,6 @@ public class ProductDTO {
                 Objects.equals(name, that.name) &&
                 Objects.equals(kcal, that.kcal);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(id, name, kcal);
