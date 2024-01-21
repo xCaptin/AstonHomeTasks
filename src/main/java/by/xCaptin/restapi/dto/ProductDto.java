@@ -1,6 +1,13 @@
 package by.xCaptin.restapi.dto;
 
-import lombok.*;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+import lombok.Builder;
+
 import java.util.Objects;
 
 @Getter
@@ -9,7 +16,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @ToString
 @Builder
-public class ProductDTO {
+public class ProductDto {
     private long id;
     private String name;
     private int kcal;
@@ -18,7 +25,7 @@ public class ProductDTO {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ProductDTO that = (ProductDTO) o;
+        ProductDto that = (ProductDto) o;
         return Objects.equals(id, that.id) &&
                 Objects.equals(name, that.name) &&
                 Objects.equals(kcal, that.kcal);
